@@ -1,0 +1,244 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+body{
+    min-height: 200vh;
+    width: 100%;
+    background-color: rgb(250, 250, 250);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow-x: hidden;
+}
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    transition: 0.6s;
+    padding: 40px 100px;
+    z-index: 1000;
+}
+.menu-toggle{
+    display: none;
+    flex-direction: column;
+    height: 20px;
+    justify-content: space-between;
+    position: relative;
+}
+.menu-toggle input{
+    position: absolute;
+    width: 40px;
+    height: 28px;
+    left: -5;
+    top: -3;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+}
+.menu-toggle span{
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: silver;
+    border-radius: 3px;
+    transition: 0.5s;
+} 
+.menu-toggle span:nth-child(2){
+    transform-origin: 0 0;
+}
+.menu-toggle span:nth-child(4){
+    transform-origin: 0 100%;
+}
+.menu-toggle input:checked ~ span:nth-child(2){
+    background-color: white;
+    transform: rotate(45deg) translate(-1px, -1px);
+}
+.menu-toggle input:checked ~ span:nth-child(4){
+    background-color: white;
+    transform: rotate(-45deg) translate(-1px, 0);
+}
+.menu-toggle input:checked ~ span:nth-child(3){
+    opacity: 0;
+    transform: scale(0);
+}
+header.sticky{
+    padding: 5px 100px;
+    background: black;
+}
+header .logo{
+    position: relative;
+    font-weight: 700;
+    color: silver;
+    text-decoration: none;
+    font-size: 2em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transform: 0.6s;
+}
+header ul{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header ul li{
+    position: relative;
+    list-style: none;
+}
+header ul li a{
+    position: relative;
+    margin: 0 15px;
+    text-decoration: none;
+    color: silver;
+    letter-spacing: 2px;
+    font-weight: 500px;
+    transform: 0.6s;
+}
+.banner{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+}
+header .sticky .logo,
+header.sticky ul li a{
+    color: #fff;
+}
+.pahlawan{
+    display: inline-block;
+}
+.pahlawan p{
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 25px;
+    padding: 15px;
+}
+@media screen and (max-width: 760px){
+    header ul{
+        width: 50%;
+    }
+    .banner.pahlawan img{
+        width: 100px;
+        height: 150px;
+    }
+}
+@media screen and (max-width: 576px){
+    .menu-toggle{
+        display: flex;
+    }
+    .banner.pahlawan img{
+        width: 100px;
+        height: 150px;
+    }
+    header ul{
+       position: absolute;
+       right: 0;
+       top: 0;
+       width: 80%;
+       height: 100vh;
+       justify-content: space-evenly;
+       flex-direction: column;
+       align-items: center;
+       background-color: black;
+       z-index: -1;
+       transform: translateX(100%);
+       transition:all 1s;
+    }
+    header ul.slide{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+header ul li::after{
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: #f44336;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+header ul li:hover::after{
+    width: 100%;
+}
+.footer {
+    flex: 1;
+    position: relative;
+    text-align: center;
+    background-color: black;
+    bottom: -55px;
+}
+.footer p a{
+    text-decoration: none;
+    color: #fff;
+}
+.footer ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+}
+.footer ul li a{
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 13px;
+}
+.footer ul li::after{
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: green;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+.footer ul li:hover::after{
+    width: 100%;
+}
+.cp p{
+    position: relative;
+    text-align: center;
+    color: rgba(192, 192, 192, 0.205);
+    background-color: black;
+    bottom: -55px;
+}
+.cp a{
+    text-decoration: none;
+}
+#contact {
+    text-align: center;
+    padding: 25PX;
+}
+.question{
+    display: inline-block;
+    text-decoration: none;
+    color: green;
+    border: 1px solid;
+    padding: 12px 34px;
+    font-size: 15px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+}
+
+.question:hover{
+    color: #f44336;
+    border: 1px solid #f44336;
+    transition: 1s;
+}
+#pro .profile{
+    
+    text-align: center;
+    padding: 20px;
+}
+#pro .profile img{
+    width: 200px;
+    height: 250px;
+}
